@@ -63,7 +63,7 @@ var correct;
 function generateQuestion(){
     gameoverDiv.style.display = "none";
     if (currentQuestionIndex === finalQuestionIndex){
-        return showScore();
+        return displayScore();
     } 
     var currentQuestion = quizQuestions[currentQuestionIndex];
     questionsEl.innerHTML = "<p>" + currentQuestion.question + "</p>";
@@ -88,7 +88,7 @@ function startQuiz(){
     
         if(timeLeft === 0) {
           clearInterval(timerInterval);
-          showScore();
+          displayScore();
         }
       }, 1000);
     quizContainer.style.display = "block";
@@ -156,8 +156,27 @@ function showFinalResults(){
 
 // create a function to check answers as you go
 
+function checkAnswer(answer){
+    correct = questions[questionIndex].correctAnswer;
 
+    // display if answer is correct
 
-// call quiz to display first
+    if (answer === correct && questionIndex !== finalQuestionIndex){
+        score++;
+        alert("Correct, nice job!");
+        questionIndex++;
+        generateQuestion();
+    }
+    
+    // display if answer is incorrect
+    
+    else if (answer !== correct && questionIndex !== finalQuestionIndex){
+        alert("That answer is incorrect.")
+        questionIndex++;
+        generateQuestion();
+    }else{
+        displayScore();
+    }
+}}
 
 startBtn.addEventListener("click", startQuiz);
