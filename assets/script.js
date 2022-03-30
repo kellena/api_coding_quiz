@@ -25,8 +25,29 @@ var finalScore = document.getElementById("finalScore");
 
 // create an array to house questions and options
 var quizQuestions = [{
-    
-}]
+
+    question: "What does DOM stand for?",
+    answerA: "Document Object Model",
+    answerB: "Display Object Model",
+    answerC: "Digital Ornithopter Model",
+    answerD: "Main Character in Fast and the Furious",
+    correctAnswer: "a"},
+    {
+    question: "Where can you go to find fonts with code included?",
+    answerA: "dafonts.com",
+    answerB: "Fresh Font Warehouse",
+    answerC: "Google Fonts",
+    answerD: "Facebook",
+    correctAnswer: "c"},
+    {
+    question: "Which is primarily used for page styling?",
+    answerA: "HTML",
+    answerB: "CSS",
+    answerC: "Bootstrap",
+    answerD: "JavaScript",
+    correctAnswer: "b"},
+
+]
 
 // create a function to begin the quiz on the start button
 
