@@ -124,7 +124,7 @@ submitScoreBtn.addEventListener("click", function allScores){
         savedScores.push(topScore);
         localStorage.setItem("savedScores", JSON.stringify(topScores));
         generateScore();
-    }
+    };
 }
 
 // create a function to check answers as you go
