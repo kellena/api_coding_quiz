@@ -124,7 +124,34 @@ submitScoreBtn.addEventListener("click", function allScores){
         savedScores.push(topScore);
         localStorage.setItem("savedScores", JSON.stringify(topScores));
         generateScore();
-    };
+    }
+}
+
+// create function to generate and display new scores pulled from local storage
+
+function generateScores(){
+    topNameDisplay.innerHTML = "";
+    topScoreDisplay.innerHTML = "";
+    var highScores = JSON.parse(localStorage.getItem("savedScores")) || [];
+    for (i=0; i<highScores.length; i++){
+        var newName = document.createElement("li");
+        var newScore = document.createElement("li");
+        newName.textContent = highscores[i].name;
+        newScore.textContent = highscores[i].score;
+        topNameDisplay.appendChild(newName);
+        topScoreDisplay.appendChild(newScore);
+    }
+}
+
+// create a function to hide questions and display final scores
+
+function showFinalResults(){
+    startScrn.style.display = "none";
+    gameOver.style.display = "none";
+    scoreContainer.style.display = "flex";
+    scorePage.style.display = "block";
+    
+    generateScores();
 }
 
 // create a function to check answers as you go
